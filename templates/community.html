@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .community-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .community-card h2 {
+            margin-top: 0;
+        }
+        .community-card p {
+            margin-bottom: 10px;
+            display: none;
+        }
+        .join-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .show-more-button {
+            background-color: #f0f0f0;
+            color: #333;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .show-more-button:hover {
+            background-color: #ccc;
+        }
+        .content {
+            flex: 1; 
+        }
+        .sidebar {
+            width: 250px; 
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed; 
+            top: 20px; 
+            right:  20px;
+            align-self: flex-start; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content"></div>
+        <h1>Community Page</h1>
+        
+        <!-- Community Card -->
+        
+        <div class="community-card">
+            <h2>Farm Folks Federation</h2>
+            <p>A farmer in need, our community is indeed</p>
+            <a href = '/community1'><button class="join-button">Join</button></a>
+            <button class="show-more-button" onclick="showMoreDescription(this)">Show More</button>
+        </div>
+    
+
+        <div class="community-card">
+            <h2>Farming Fellowship</h2>
+            <p>A problem shared is a problem halved. Together, we can find solutions to even the toughest challenges that farmers face.</p>
+            <a href = '/community1'><button class="join-button">Join</button></a>
+            <button class="show-more-button" onclick="showMoreDescription(this)">Show More</button>
+        </div>
+        <div class="community-card">
+            <h2>Agricrafters Association</h2>
+            <p>No farmer stands alone. Let's lean on each other, lend a helping hand, and build a network of support that sustains us through the toughest times</p>
+            <a href = '/community1'> <button class="join-button">Join</button></a>
+            <button class="show-more-button" onclick="showMoreDescription(this)">Show More</button>
+        </div>
+        <div class="community-card">
+            <h2>Harvest Helpers Hub</h2>
+            <p>United we farm, divided we struggle. Let's come together as a community to sow the seeds of change and reap the rewards of solidarity</p>
+            <a href = '/community1'><button class="join-button">Join</button></a>
+            <button class="show-more-button" onclick="showMoreDescription(this)">Show More</button>
+        </div>
+
+    </div>
+
+    <div class="sidebar">
+        <h2>Community Guidelines</h2>
+        <p>1. Respect each other.</p>
+        <p>2. Keep discussions civil and constructive.</p>
+        <p>3. No spam or irrelevant content.</p>
+        <p>4. Help and support your fellow farmers.</p>
+        <p>5. Contact moderators for any issues.</p>
+    </div>
+
+    </div>
+
+    <script>
+        function showMoreDescription(button) {
+            var communityCard = button.parentElement;
+            var description = communityCard.querySelector('p');
+            description.style.display = 'block';
+            button.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

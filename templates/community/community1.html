@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .content {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            right: 20px;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .member-list {
+            margin-top: 20px;
+        }
+        .member-list h3 {
+            margin-top: 0;
+        }
+        .member-list ul {
+            padding: 0;
+            list-style: none;
+        }
+        .member-list li {
+            margin-bottom: 10px;
+        }
+        .contact-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        .contact-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Farm Folks Federation</h1>
+            
+            <!-- Community description -->
+            <p>A farmer in need, our community is indeed</p>
+
+            <!-- Community members -->
+            <div class="member-list">
+                <h2>Community Members</h2>
+                <ul>
+                    <li>Ramu</li>
+                    <li>venkaiyah</li>
+                    <li>surya</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <!-- Contact buttons -->
+            <h2>Contact Community</h2>
+            <a href="mailto:community@example.com" class="contact-button">Contact for Handloan</a>
+            <a href="mailto:community@example.com" class="contact-button">Rent Machinery</a>
+            <a href="mailto:community@example.com" class="contact-button">Hire Labor</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <script>
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+
+      function showPosition(position) {
+        document.getElementById("latitude").value = position.coords.latitude;
+        document.getElementById("longitude").value = position.coords.longitude;
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+      }
+      getLocation();
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="/schemes"><i class="fa fa-fw fa-search"></i> Schemes</a>
+        <a href="/community"><i class="fa fa-fw fa-envelope"></i> community</a>
+        <a href="/login"><i class="fa fa-fw fa-user"></i> Login</a>
+      </div>
+    <div class="container">
+      <video autoplay muted loop id="myVideo">
+        <source
+          src="{{ url_for('static', filename='backgroundVideo.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+      <!-- Optional: some overlay text to describe the video -->
+      <div class="content">
+        <h1>AgriTech</h1>
+        <p>A step towards the future</p>
+        <p>In the age of information, Agri-Tech plows through the digital soil, sowing solutions and reaping a harvest of innovation.</p>
+      </div>
+    </div>
+ 
+    <div>
+    
+    <form id="recommendForm" action="/recommend-crop" method="post">
+      <h2>Enter below details to know which crop to grow</h2>
+      <label for="N">N Value:</label>
+      <input name="N" id="N" type="number" required/>
+      <label for="P">P Value:</label>
+      <input name="P" id="P" type="number" required/>
+      <label for="K">K Value:</label>
+      <input name="K" id="K" type="number" required/>
+      <label for="ph">Ph Value:</label>
+      <input name="ph" id="ph" type="number" required/>
+      <input type="hidden" id="latitude" name="latitude" />
+      <input type="hidden" id="longitude" name="longitude" />
+      <button>submit</button>
+    </form>
+    {% if crop %}
+
+    <div id = "cropRecContainer">
+      
+    <div id="cropToGrow">
+      <h2>Crop to be Grown</h2>
+      <p>{{crop}}</p>
+      <div><img id = "cropImg" src="{{ url_for('static', filename='cropImages/' + crop + '.jpg') }}" alt= "{{crop}} image"/></div>
+    </div>
+    
+
+    <!-- weather -->
+    <div class="weatherContainer">
+      <div class="weatherTopbar">
+        <div class="weatherImage">
+          <img src= "{{ url_for('static', filename='weatherImages/cloud.png') }}"  alt="" />
+        </div>
+        <div class="weatherTemp">{{temperature}} °c</div>
+        <div class="weatherLocation"> Hyderabad </div>
+        <div class="dataContainer">
+          <div class="element">
+            <img class="icon" src= "{{ url_for('static', filename='weatherImages/humidity.png') }}" alt="" />
+            <div class="data">
+              <div class="humidityPercentage">
+                {{humidity}}%
+              </div>
+              <div class="text">Humidity</div>
+            </div>
+          </div>
+          <div class="element">
+            <img class="icon" src= "{{ url_for('static', filename='weatherImages/wind.png') }}" alt="" />
+            <div class="data">
+              <div class="windSpeedPercentage">
+                {{windSpeed}}km/hr
+              </div>
+              <div class="text">Wind Speed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% elif crop == 'error' %}
+    <div id="croptToGrow">Something went wront</div>
+
+    {% endif %}
+
+</div>
+
+  </body>
+</html>
